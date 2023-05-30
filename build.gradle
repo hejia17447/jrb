@@ -1,0 +1,55 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.graalvm.buildtools.native' version '0.9.20'
+}
+
+group = 'com.hj'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenLocal()
+    maven { url 'https://maven.aliyun.com/repository/public/' }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+ext {
+    SpringCloudAlibabaVersion = '2022.0.0.0-RC2'
+    SpringCloudVersion = '2022.0.0'
+    MybatisPlusVersion = '3.5.3.1'
+    VelocityVersion = '2.3'
+    CommonsLang3Version = '3.12.0'
+    CommonsFileuploadVersion = '1.5'
+    CommonsIoVersion = '2.12.0'
+    AlibabaEasyexcelVersion = '3.3.1'
+    ApacheXmlbeansVersion = '5.1.1'
+    Fastjson2Version = '2.0.33'
+    GsonVersion = '2.10.1'
+    JsonVersion = '20230227'
+    AliyunJavaSdkCoreVersion = '4.6.3'
+    AliyunSdkOSSVersion = '3.16.3'
+    JodatimeVersion = '2.12.5'
+    JWTVersion = '0.11.5'
+    Httpclient5Version = '5.2.1'
+}
